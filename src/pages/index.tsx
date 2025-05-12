@@ -1,16 +1,9 @@
-import Head from 'next/head'
-import Editor from '../components/Editor'
+import dynamic from 'next/dynamic';
 
+const Editor = dynamic(() => import('../components/Editor'), {
+  ssr: false,
+});
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Realtime Editor</title>
-      </Head>
-      <main>
-        <Editor />
-      </main>
-    </>
-  )
+export default function HomePage() {
+  return <Editor />;
 }
