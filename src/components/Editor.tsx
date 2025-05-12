@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import * as Y from 'yjs'
 import { WebsocketProvider } from 'y-websocket'
-import Quill from 'quill'
+
 import 'quill/dist/quill.snow.css'
 
  //Toolbar Optiopns
@@ -113,16 +113,21 @@ useEffect(() => {
   }
 
   // linsten changes form the localstore form other tabs
-  const handleStorage = (event: StorageEvent) => {
-    console.log("qwee ", event)
+   const handleStorage = async (event: StorageEvent) => {
     if (event.key === 'autosave-content' && quill) {
       try {
+        const Quill = (await import('quill')).default;
+        const Delta = Quill.import('delta');
         const updatedContent = JSON.parse(event.newValue || '');
-      if(updatedContent && yText){
-         yText.delete(0, yText.length); // clear the changes
-         yText.insert(0, Quill.import('delta').prototype.constructor ? updatedContent.ops.map(op => op.insert).join('') : ''); 
-      }
-        console.log({updatedContent })
+        if (updatedContent && yText) {
+          yText.delete(0, yText.length);
+          yText.insert(
+            0,
+            Delta.prototype.constructor
+              ? updatedContent.ops.map(op => op.insert).join('')
+              : ''
+          );
+        }
         quill.setContents(updatedContent);
         console.log('🔄 Synced content from another tab');
       } catch (error) {
