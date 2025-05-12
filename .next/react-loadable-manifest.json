@@ -1,0 +1,24 @@
+{
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_next_dist_pages__app_js.js"
+    ]
+  },
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_next_dist_pages__error_js.js"
+    ]
+  },
+  "components\\Editor.tsx -> quill": {
+    "id": "components\\Editor.tsx -> quill",
+    "files": []
+  },
+  "components\\Editor.tsx -> quill-cursors": {
+    "id": "components\\Editor.tsx -> quill-cursors",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_quill-cursors_dist_quill-cursors_js.js"
+    ]
+  }
+}
